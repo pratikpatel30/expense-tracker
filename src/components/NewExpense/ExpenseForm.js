@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 import './ExpenseForm.css';
 
-const ExpenseForm = ()=> {
+const ExpenseForm = (props)=> {
     
     //for collect data
     const [enteredTitle, setEnteredTitle] = useState("");
@@ -31,10 +31,13 @@ const ExpenseForm = ()=> {
             amount: enteredAmount,
             date: new Date(enteredDate)
         }
+
+        props.onSaveExpenseData(expenseData);
+
         console.log(expenseData);
 
         //for blank input
-        setEnteredTitle('');
+        setEnteredTitle('');  
         setEnteredAmount('');
         setEnteredDate('');
     };
